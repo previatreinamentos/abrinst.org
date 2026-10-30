@@ -7,7 +7,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <script>
@@ -15,18 +15,19 @@
       theme: {
         extend: {
           fontFamily: {
+            title: ['Montserrat', 'sans-serif'],
             sans: ['Inter', 'sans-serif'],
           },
           colors: {
             abrinst: {
+              headerBg: '#213144',
               navy: '#091a36',
               blueDark: '#0d234a',
               blueBrand: '#1e3a8a',
-              blueLight: '#2563eb',
-              yellow: '#ffb703',
-              yellowHover: '#fb8500',
-              gold: '#f59e0b',
-              btnRed: '#e60000'
+              yellow: '#f59e0b',
+              gold: '#fbbf24',
+              btnRed: '#e60000',
+              menuRed: '#e05252'
             }
           }
         }
@@ -35,6 +36,27 @@
   </script>
 
   <style>
+    /* Imagem aérea de viadutos com overlay suave e transparente */
+    .hero-viaduto-bg {
+      background-image: 
+        radial-gradient(circle at center, rgba(17, 30, 47, 0.35) 0%, rgba(10, 20, 32, 0.55) 100%),
+        radial-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+        url('https://lh3.googleusercontent.com/pw/AP1GczP_j8IotxlaLLdxzMO9npJBAPtB_Fxbmx_t4JKKwr9_s0ktPc83r_l-LsljuQju7AlkK0i8aQKQwtMvDl_Yw1I_YJp70RhWrOPIcQjFCAchGxW0CTHFlFIiAGjUlu1_OOgyxxpoq4mje9xCbwAK3ASr=w1024-h417-s-no-gm?authuser=0');
+      background-size: cover, 16px 16px, cover;
+      background-position: center;
+      background-repeat: no-repeat, repeat, no-repeat;
+    }
+
+    .title-3d {
+      color: #ffffff;
+      text-shadow: 
+        0 1px 0 #cbd5e1,
+        0 2px 0 #94a3b8,
+        0 3px 0 #64748b,
+        0 4px 6px rgba(0, 0, 0, 0.7),
+        0 10px 25px rgba(0, 0, 0, 0.9);
+    }
+
     .netflix-slider {
       display: flex;
       overflow-x: auto;
@@ -42,7 +64,7 @@
       gap: 1.25rem;
       padding-bottom: 1.5rem;
       scrollbar-width: thin;
-      scrollbar-color: #ffb703 #0d234a;
+      scrollbar-color: #f59e0b #0d234a;
     }
     .netflix-slider::-webkit-scrollbar {
       height: 6px;
@@ -52,7 +74,7 @@
       border-radius: 9999px;
     }
     .netflix-slider::-webkit-scrollbar-thumb {
-      background: #ffb703;
+      background: #f59e0b;
       border-radius: 9999px;
     }
     .netflix-card {
@@ -67,12 +89,25 @@
 </head>
 <body class="bg-white font-sans text-slate-900 antialiased selection:bg-amber-400 selection:text-slate-950">
 
+  <!-- BARRA VERTICAL DE REDES SOCIAIS NA LATERAL DIREITA -->
+  <aside class="fixed right-0 top-1/2 -translate-y-1/2 z-50 flex flex-col items-center justify-center gap-6 bg-[#f59e0b] py-6 px-3.5 shadow-2xl rounded-l-2xl border-l-2 border-t-2 border-b-2 border-amber-300/40" aria-label="Redes Sociais ABRINST">
+    <a href="https://www.instagram.com/abrinst.br" target="_blank" title="Instagram" class="text-slate-950 text-xl hover:scale-125 hover:text-white transition transform duration-200">
+      <i class="fa-brands fa-instagram"></i>
+    </a>
+    <a href="http://www.facebook.com/abrinst.org" target="_blank" title="Facebook" class="text-slate-950 text-xl hover:scale-125 hover:text-white transition transform duration-200">
+      <i class="fa-brands fa-facebook-f"></i>
+    </a>
+    <a href="https://api.whatsapp.com/send?phone=5531990174080" target="_blank" title="WhatsApp" class="text-slate-950 text-xl hover:scale-125 hover:text-white transition transform duration-200">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+  </aside>
+
   <!-- BARRA DE ACESSIBILIDADE FIXA -->
-  <aside class="fixed right-3 top-1/3 z-50 flex flex-col gap-2 rounded-2xl bg-white/95 p-2 shadow-2xl backdrop-blur-md border border-slate-200" aria-label="Acessibilidade">
+  <aside class="fixed left-3 top-1/3 z-50 flex flex-col gap-2 rounded-2xl bg-white/95 p-2 shadow-2xl backdrop-blur-md border border-slate-200" aria-label="Acessibilidade">
     <button title="Libras" class="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-100 text-slate-700 hover:bg-amber-400 hover:text-slate-950 transition">
       <i class="fa-solid fa-hands-asl-interpreting"></i>
     </button>
-    <button title="Leitor de Tela" onclick="ouvirPagina()" class="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-100 text-slate-700 hover:bg-amber-400 hover:text-slate-950 transition">
+    <button title="Leitor de Ecrã" onclick="ouvirPagina()" class="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-100 text-slate-700 hover:bg-amber-400 hover:text-slate-950 transition">
       <i class="fa-solid fa-ear-listen"></i>
     </button>
     <button title="Alto Contraste" onclick="toggleContrast()" class="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-100 text-slate-700 hover:bg-amber-400 hover:text-slate-950 transition">
@@ -80,77 +115,78 @@
     </button>
   </aside>
 
-  <!-- CABEÇALHO SUPERIOR ALINHADO -->
-  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
-    <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-3.5">
-      <a href="#" class="flex items-center gap-3 shrink-0">
-        <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-400 text-slate-950 font-black text-lg shadow-md">
-          A
-        </div>
-        <div class="leading-tight">
-          <span class="block text-lg font-extrabold tracking-tight text-slate-950">ABRINST</span>
-          <span class="text-[9px] font-bold tracking-wider uppercase text-blue-900">Instrutores de Trânsito</span>
-        </div>
+  <!-- CABEÇALHO -->
+  <header class="sticky top-0 z-40 bg-[#213144] border-b border-slate-700/80 shadow-md">
+    <div class="mx-auto flex max-w-7xl items-center justify-between pl-6 pr-0 py-0">
+      
+      <!-- LOGÓTIPO OFICIAL -->
+      <a href="#inicio-sobre" class="flex items-center gap-3 py-3">
+        <img 
+          src="https://static.wixstatic.com/media/a0f66e_5180a3b9f1d94c17832f488fd0401d92%7Emv2.png/v1/fill/w_192%2Ch_192%2Clg_1%2Cusm_0.66_1.00_0.01/a0f66e_5180a3b9f1d94c17832f488fd0401d92%7Emv2.png" 
+          alt="Logótipo Oficial ABRINST" 
+          class="h-10 w-10 sm:h-11 sm:w-11 object-contain drop-shadow"
+        >
+        <span class="text-lg font-black tracking-widest text-white uppercase font-title">
+          ABRINST
+        </span>
       </a>
 
-      <nav class="hidden xl:flex items-center gap-6 text-[11px] font-bold uppercase tracking-wider text-slate-700">
-        <a href="#inicio-boas-vindas" class="hover:text-blue-900 transition whitespace-nowrap">Início</a>
-        <a href="#capacitacao-metodologia" class="hover:text-blue-900 transition whitespace-nowrap">Metodologia</a>
-        <a href="#rede-nacional" class="text-blue-900 hover:text-amber-500 transition flex items-center gap-1.5 whitespace-nowrap">
-          <i class="fa-solid fa-users-viewfinder text-xs text-amber-500"></i> Rede Nacional
-        </a>
-        <a href="#buscar-instrutor" class="hover:text-blue-900 transition flex items-center gap-1.5 whitespace-nowrap">
-          <i class="fa-solid fa-map-location-dot text-xs text-amber-500"></i> Mapa por Estado
-        </a>
-        <a href="#processo-cnh" class="hover:text-blue-900 transition flex items-center gap-1.5 whitespace-nowrap">
-          <i class="fa-solid fa-id-card text-xs text-amber-500"></i> Processo CNH
-        </a>
-        <a href="#sobre" class="hover:text-blue-900 transition whitespace-nowrap">Sobre Nós</a>
-        <a href="#legislacao" class="hover:text-blue-900 transition whitespace-nowrap">Legislação</a>
-        <a href="#faq" class="hover:text-blue-900 transition whitespace-nowrap">FAQ</a>
+      <!-- MENU DE NAVEGAÇÃO -->
+      <nav class="hidden xl:flex items-center gap-8 text-[13px] font-semibold tracking-wide text-slate-200">
+        <a href="#inicio-sobre" class="text-[#e05252] font-bold hover:text-red-400 transition">Início</a>
+        <a href="#inicio-sobre" class="hover:text-amber-400 transition">Sobre nós</a>
+        <a href="#cadastro" class="hover:text-amber-400 transition">Associe-se</a>
+        <a href="#rede-nacional" class="hover:text-amber-400 transition">Notícias</a>
+        <a href="https://api.whatsapp.com/send?phone=5531990174080" target="_blank" class="hover:text-amber-400 transition">Fale Conosco</a>
+        
+        <div class="flex items-center gap-1.5 cursor-pointer text-slate-300 hover:text-white transition pl-2">
+          <i class="fa-solid fa-circle-user text-lg"></i>
+          <i class="fa-solid fa-chevron-down text-[10px]"></i>
+        </div>
       </nav>
 
-      <div class="flex items-center gap-2.5 shrink-0">
-        <a href="#cadastro" class="rounded-full bg-amber-400 px-5 py-2 text-xs font-black uppercase tracking-wider text-slate-950 shadow-md hover:bg-amber-300 transition hover:shadow-lg whitespace-nowrap">
-          Seja um Associado
-        </a>
-        <a href="https://api.whatsapp.com/send?phone=5531990174080" target="_blank" class="rounded-full border border-slate-300 px-4 py-2 text-xs font-bold text-slate-800 hover:border-amber-400 hover:bg-amber-50 transition whitespace-nowrap">
-          Fale Conosco
-        </a>
+      <!-- BOTÃO AMARELO 'DOAR' -->
+      <div class="flex items-stretch">
+        <button onclick="abrirModalDoar()" class="bg-[#f59e0b] hover:bg-amber-400 text-slate-950 font-black text-xs sm:text-sm tracking-widest uppercase px-9 py-5 transition duration-200 flex items-center justify-center shadow-lg">
+          DOAR
+        </button>
       </div>
+
     </div>
   </header>
 
-  <!-- BLOCO DE BOAS-VINDAS NO INÍCIO -->
-  <section id="inicio-boas-vindas" class="bg-gradient-to-r from-slate-950 via-[#091a36] to-slate-950 text-white py-14 border-b-4 border-amber-400 relative overflow-hidden">
-    <div class="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
-      <div class="flex flex-col lg:flex-row items-center justify-between gap-8">
-        <div class="max-w-4xl space-y-4">
-          <div class="inline-flex items-center gap-2 rounded-full bg-amber-400/20 px-4 py-1 text-xs font-black uppercase tracking-widest text-amber-300 border border-amber-400/30">
-            <i class="fa-solid fa-hand-wave"></i> Mensagem Oficial de Acolhimento
-          </div>
-          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight">
-            SEJA BEM-VINDO À <span class="text-amber-400">ABRINST</span>
-          </h1>
-          <p class="text-base sm:text-lg text-slate-200 leading-relaxed font-normal">
+  <!-- SEÇÃO INICIAL / SOBRE NÓS COM FUNDO TRANSPARENTE E NÍTIDO -->
+  <section id="inicio-sobre" class="hero-viaduto-bg text-white pt-20 pb-28 sm:pt-24 sm:pb-36 relative overflow-hidden border-b-4 border-amber-400">
+    <div class="mx-auto max-w-5xl px-6 lg:px-8 relative z-10 flex flex-col items-center text-center">
+
+      <h1 class="title-3d font-title font-black text-3xl sm:text-5xl lg:text-6xl tracking-wider uppercase mb-16 sm:mb-20 leading-tight drop-shadow-2xl">
+        SEJA BEM-VINDO À<br>
+        ABRINST!
+      </h1>
+
+      <div class="w-full max-w-4xl flex flex-col md:flex-row items-center justify-center gap-8 md:gap-10 text-left bg-slate-950/40 backdrop-blur-[1px] p-6 sm:p-8 rounded-3xl border border-white/20 shadow-2xl">
+        
+        <div class="shrink-0 flex items-center justify-center">
+          <img 
+            src="https://static.wixstatic.com/media/a0f66e_5180a3b9f1d94c17832f488fd0401d92%7Emv2.png/v1/fill/w_192%2Ch_192%2Clg_1%2Cusm_0.66_1.00_0.01/a0f66e_5180a3b9f1d94c17832f488fd0401d92%7Emv2.png" 
+            alt="ABRINST" 
+            class="h-32 w-32 sm:h-36 sm:w-36 rounded-3xl shadow-2xl bg-[#f59e0b] p-2 border-2 border-white/30 transform hover:scale-105 transition duration-300"
+          >
+        </div>
+
+        <div class="space-y-4">
+          <p class="text-amber-100 text-sm sm:text-base leading-relaxed font-normal drop-shadow">
             A <strong>Associação Brasileira dos Instrutores de Trânsito - ABRINST</strong> é uma instituição dedicada a fortalecer a classe dos instrutores de trânsito no Brasil. Junte-se a nós para promover a nossa autonomia, a qualificação profissional e, principalmente, contribuir para a melhoria da segurança viária, por meio da formação de condutores responsáveis e da educação para o trânsito, do ensino fundamental ao superior.
           </p>
         </div>
-        <div class="flex flex-row lg:flex-col gap-3 shrink-0">
-          <a href="#cadastro" class="rounded-2xl bg-amber-400 px-6 py-4 text-xs font-black uppercase tracking-wider text-slate-950 hover:bg-amber-300 shadow-xl transition text-center flex items-center justify-center gap-2">
-            <span>Quero me Associar</span>
-            <i class="fa-solid fa-arrow-right"></i>
-          </a>
-          <a href="#processo-cnh" class="rounded-2xl bg-white/10 border border-white/20 px-6 py-4 text-xs font-bold uppercase tracking-wider text-white hover:bg-white/20 transition text-center">
-            Entenda o Processo CNH
-          </a>
-        </div>
+
       </div>
+
     </div>
   </section>
 
   <!-- BLOCO: CAPACITAÇÃO COM A METODOLOGIA ABRINST -->
-  <section id="capacitacao-metodologia" class="bg-gradient-to-b from-white via-blue-50/30 to-slate-50 pt-12 pb-20 border-b border-slate-200 overflow-hidden relative">
+  <section id="capacitacao-metodologia" class="bg-gradient-to-b from-white via-blue-50/30 to-slate-50 pt-16 pb-20 border-b border-slate-200 overflow-hidden relative">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         
@@ -160,7 +196,7 @@
             Metodologia ABRINST de Ensino
           </div>
 
-          <h2 class="text-4xl sm:text-5xl font-black leading-[1.1] tracking-tight text-slate-950">
+          <h2 class="text-4xl sm:text-5xl font-black leading-[1.1] tracking-tight text-slate-950 font-title">
             <span class="text-blue-900 block">Capacitação</span>
             com a Metodologia ABRINST
           </h2>
@@ -289,16 +325,13 @@
     </div>
   </section>
 
-  <!-- ======================================================== -->
-  <!-- SEÇÃO: REDE NACIONAL DE INSTRUTORES ASSOCIADOS (IMAGEM 1)-->
-  <!-- ======================================================== -->
+  <!-- SEÇÃO: REDE NACIONAL DE INSTRUTORES ASSOCIADOS -->
   <section id="rede-nacional" class="py-16 bg-white border-b border-slate-200">
     <div class="max-w-7xl mx-auto px-6">
       
-      <!-- Cabeçalho da Seção em Azul e Branco -->
-      <div class="bg-gradient-to-r from-[#091a36] via-[#0d234a] to-[#091a36] rounded-3xl p-8 sm:p-12 text-center text-white mb-8 shadow-xl border-t-4 border-amber-400">
+      <div class="bg-gradient-to-r from-[#091a36] via-[#0d234a] to-[#091a36] rounded-3xl p-8 sm:p-12 text-center text-white mb-6 shadow-xl border-t-4 border-amber-400">
         <div class="max-w-3xl mx-auto space-y-4">
-          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight">
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight font-title">
             Amplie sua renda e impacte vidas como<br class="hidden sm:inline"> Instrutor de trânsito associado ABRINST!
           </h2>
           <p class="text-slate-200 text-xs sm:text-sm font-medium">
@@ -312,11 +345,10 @@
         </div>
       </div>
 
-      <!-- IMAGEM 1 EXCLUSIVA (Sem fotos extras ao redor) -->
       <div class="rounded-3xl overflow-hidden shadow-2xl border-4 border-slate-100 bg-white group">
         <img 
           src="https://lh3.googleusercontent.com/pw/AP1GczNvCb6-gaPzmnwAulimsxxfKn9osWvPHAM9g1cV3m4x83Av51Fu3hLWZP3VcaeC-FIUnf19UGEdicUIwfJcywXyMAHvRF7xHDk3OpFv0kSnICpvneURXoJpv7xQJbkO6NdI9axpx9FJQ5bs76oAS-hG=w1024-h401-s-no-gm?authuser=0" 
-          alt="Rede Nacional com mais de 1000 instrutores de trânsito associados certificados em todo o país" 
+          alt="Faça parte de uma rede com mais de 1000 instrutores de trânsito associados certificados em todo o país" 
           class="w-full h-auto object-cover transform group-hover:scale-[1.01] transition duration-500"
         >
       </div>
@@ -324,17 +356,14 @@
     </div>
   </section>
 
-  <!-- ======================================================== -->
-  <!-- SEÇÃO: DEPOIMENTOS DE INSTRUTORES ASSOCIADOS             -->
-  <!-- ======================================================== -->
+  <!-- SEÇÃO: DEPOIMENTOS DE INSTRUTORES ASSOCIADOS -->
   <section class="bg-[#ffb703] py-20 px-6 border-b border-amber-500">
     <div class="max-w-6xl mx-auto text-center">
       
-      <h2 class="text-[#091a36] text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight mb-12">
+      <h2 class="text-[#091a36] text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight mb-12 font-title">
         Veja o que nossos instrutores de trânsito<br class="hidden sm:inline"> associados falam sobre a ABRINST
       </h2>
 
-      <!-- 3 Cards de Depoimento em Vídeo -->
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-12">
         
         <div class="flex flex-col items-center">
@@ -405,16 +434,218 @@
     </div>
   </section>
 
-  <!-- ======================================================== -->
-  <!-- SEÇÃO: BENEFÍCIOS DO INSTRUTOR ASSOCIADO (IMAGEM 3)      -->
-  <!-- ======================================================== -->
-  <section class="py-20 bg-white border-b border-slate-200">
+  <!-- SEÇÃO: PLANOS & BENEFÍCIOS -->
+  <section id="beneficios" class="py-24 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <span class="inline-flex items-center gap-2 rounded-full bg-blue-100 px-3.5 py-1 text-xs font-bold uppercase tracking-widest text-blue-950 border border-blue-200">
+          <i class="fa-solid fa-layer-group text-amber-500"></i> Níveis de Associação
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-950 tracking-tight font-title">
+          Planos e Benefícios para Instrutores
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+          Escolha o nível ideal para a sua atuação: desde o acesso à comunidade oficial e materiais até a plataforma tecnológica completa de gestão da PREVIA Treinamentos.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 border border-slate-200 rounded-3xl overflow-hidden shadow-xl bg-white divide-y md:divide-y-0 md:divide-x divide-slate-200">
+        
+        <!-- PLANO 1 -->
+        <div class="p-8 flex flex-col justify-between hover:bg-slate-50/50 transition">
+          <div>
+            <div class="space-y-1 mb-6">
+              <h3 class="text-2xl font-black text-slate-900 font-title">Free</h3>
+              <div class="flex items-baseline gap-1 pt-2">
+                <span class="text-4xl font-extrabold text-slate-950">R$ 0</span>
+                <span class="text-xs text-slate-500 font-semibold">/ gratuito</span>
+              </div>
+              <p class="text-xs text-slate-500 pt-1">Acesso à comunidade e apoio de classe</p>
+            </div>
+
+            <div class="mb-8">
+              <a href="#cadastro" class="block w-full py-3 px-4 rounded-full border border-blue-600 text-blue-600 hover:bg-blue-50 text-center font-bold text-xs uppercase tracking-wider transition">
+                Iniciar agora
+              </a>
+            </div>
+
+            <div class="space-y-4">
+              <div class="text-xs font-bold text-slate-900">O plano Free inclui:</div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-brands fa-whatsapp text-emerald-500 text-base mt-0.5 shrink-0"></i>
+                <div>
+                  <div class="text-xs font-bold text-slate-900 leading-tight">Grupo Associados FREE</div>
+                  <div class="text-[11px] text-slate-500 mt-0.5">Networking direto no canal do WhatsApp oficial</div>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-book-open text-blue-600 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <div class="text-xs font-bold text-slate-900 leading-tight">Acesso a Materiais Básicos</div>
+                  <div class="text-[11px] text-slate-500 mt-0.5">Atualizações de resoluções e cartilhas de trânsito</div>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-bullhorn text-amber-500 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <div class="text-xs font-bold text-slate-900 leading-tight">Informativos do Setor</div>
+                  <div class="text-[11px] text-slate-500 mt-0.5">Notícias sobre CONTRAN, SENATRAN e campanhas</div>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-graduation-cap text-purple-600 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <div class="text-xs font-bold text-slate-900 leading-tight">Ações Educativas ABRINST</div>
+                  <div class="text-[11px] text-slate-500 mt-0.5">Participação em ações comunitárias e escolas</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PLANO 2 -->
+        <div class="p-8 flex flex-col justify-between bg-slate-50/70 hover:bg-slate-50 transition relative">
+          <div>
+            <div class="space-y-1 mb-6">
+              <div class="flex items-center justify-between">
+                <h3 class="text-2xl font-black text-slate-900 font-title">Plus</h3>
+                <span class="text-[10px] bg-blue-100 text-blue-900 font-bold px-2.5 py-0.5 rounded-full uppercase">Intermediário</span>
+              </div>
+              <div class="flex items-baseline gap-1 pt-2">
+                <span class="text-4xl font-extrabold text-blue-900">R$ 39,90</span>
+                <span class="text-xs text-slate-500 font-semibold">/ mês</span>
+              </div>
+              <p class="text-xs text-slate-500 pt-1">Credenciamento e fortalecimento de classe</p>
+            </div>
+
+            <div class="mb-8">
+              <a href="#cadastro" class="block w-full py-3 px-4 rounded-full bg-blue-900 hover:bg-blue-800 text-white text-center font-bold text-xs uppercase tracking-wider shadow-md transition">
+                Iniciar agora
+              </a>
+            </div>
+
+            <div class="space-y-4">
+              <div class="text-xs font-bold text-slate-900">Todos os recursos do Free, e também:</div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-id-badge text-blue-600 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <div class="text-xs font-bold text-slate-900 leading-tight">Carteira Digital de Associado</div>
+                  <div class="text-[11px] text-slate-500 mt-0.5">Identificação oficial com verificação online</div>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-scale-balanced text-amber-500 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <div class="text-xs font-bold text-slate-900 leading-tight">Assessoria Jurídica Orientativa</div>
+                  <div class="text-[11px] text-slate-500 mt-0.5">Esclarecimento de dúvidas legais e normativas</div>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-certificate text-emerald-500 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <div class="text-xs font-bold text-slate-900 leading-tight">Capacitações Contínuas</div>
+                  <div class="text-[11px] text-slate-500 mt-0.5">Descontos e certificados em cursos de formação</div>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-user-check text-purple-600 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <div class="text-xs font-bold text-slate-900 leading-tight">Perfil no Localizador Nacional</div>
+                  <div class="text-[11px] text-slate-500 mt-0.5">Destaque intermediário na busca de alunos por estado</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PLANO 3 -->
+        <div class="p-8 flex flex-col justify-between bg-white hover:bg-slate-50/50 transition relative border-t-4 md:border-t-0 md:border-l-4 border-amber-400">
+          <div>
+            <div class="space-y-1 mb-6">
+              <div class="flex items-center justify-between">
+                <h3 class="text-2xl font-black text-slate-900 font-title">Prime</h3>
+                <span class="text-[10px] bg-amber-100 text-amber-900 border border-amber-300 font-black px-2.5 py-0.5 rounded-full uppercase">Tecnologia PREVIA</span>
+              </div>
+              <div class="flex items-baseline gap-1 pt-2">
+                <span class="text-4xl font-extrabold text-slate-950">R$ 150</span>
+                <span class="text-xs text-slate-500 font-semibold">/ mês</span>
+              </div>
+              <p class="text-xs text-amber-600 font-bold pt-1">6 dias de teste grátis • Sem taxa de implantação</p>
+            </div>
+
+            <div class="mb-8">
+              <a href="#cadastro" class="block w-full py-3 px-4 rounded-full bg-amber-400 hover:bg-amber-300 text-slate-950 text-center font-black text-xs uppercase tracking-wider shadow-lg hover:shadow-xl transition">
+                Testar 6 dias grátis
+              </a>
+            </div>
+
+            <div class="space-y-4">
+              <div class="text-xs font-bold text-slate-900">Tudo do plano Plus, e também:</div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-globe text-blue-600 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <div class="text-xs font-bold text-slate-900 leading-tight">Whitelabel & Endereço Próprio</div>
+                  <div class="text-[11px] text-slate-500 mt-0.5">instrutor"seunome".previatreinamentos.com.br configurado pela equipa</div>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-mobile-screen-button text-emerald-500 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <div class="text-xs font-bold text-slate-900 leading-tight">App PWA do Aluno (Sem Baixar em Loja)</div>
+                  <div class="text-[11px] text-slate-500 mt-0.5">Instala no ecrã inicial com a sua marca, login por CPF e biometria</div>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-file-signature text-purple-600 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <div class="text-xs font-bold text-slate-900 leading-tight">LADV pelo Telemóvel & Contrato Digital</div>
+                  <div class="text-[11px] text-slate-500 mt-0.5">Assinado com o dedo no ecrã, sem papel; texto bloqueia na assinatura</div>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-location-dot text-amber-500 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <div class="text-xs font-bold text-slate-900 leading-tight">GPS Ao Vivo para a Família & Fotos</div>
+                  <div class="text-[11px] text-slate-500 mt-0.5">Acompanhamento da aula em tempo real, notas e até 6 fotos por aula</div>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-users text-blue-600 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <div class="text-xs font-bold text-slate-900 leading-tight">Multi-Instrutor & 0% de Comissão</div>
+                  <div class="text-[11px] text-slate-500 mt-0.5">Alunos e agenda A/B partilhados. Fica com 100% do valor das suas aulas</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SEÇÃO: BENEFÍCIOS DO INSTRUTOR ASSOCIADO (FOTO DOS INSTRUTORES) -->
+  <section class="py-20 bg-slate-50 border-b border-slate-200">
     <div class="max-w-6xl mx-auto px-6">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         
-        <!-- Texto de Benefícios -->
         <div class="lg:col-span-6 space-y-6">
-          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#091a36] tracking-tight leading-tight">
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#091a36] tracking-tight leading-tight font-title">
             Benefícios de ser um Instrutor de<br class="hidden sm:inline"> trânsito associado ABRINST
           </h2>
 
@@ -426,13 +657,12 @@
           </ul>
 
           <div class="pt-4">
-            <a href="#cadastro" class="inline-block rounded-full bg-[#e60000] px-8 py-3.5 text-xs sm:text-sm font-black uppercase tracking-wider text-white shadow-xl hover:bg-red-700 hover:scale-105 transition transform">
+            <a href="#cadastro" class="inline-block rounded-full bg-[#e60000] px-8 py-3.5 text-xs sm:text-sm font-black uppercase tracking-wider text-white shadow-xl hover:bg-red-700 transition">
               Faça parte desse time!
             </a>
           </div>
         </div>
 
-        <!-- IMAGEM 3 EXCLUSIVA DO INSTRUTOR E INSTRUTORA -->
         <div class="lg:col-span-6 flex justify-center">
           <div class="relative max-w-md w-full">
             <img 
@@ -447,122 +677,9 @@
     </div>
   </section>
 
-  <!-- ======================================================== -->
-  <!-- SEÇÃO: TIPOS DE TREINAMENTOS (AZUL PREDOMINANTE)         -->
-  <!-- ======================================================== -->
-  <section class="bg-[#091a36] text-white py-20 px-6 text-center border-b border-slate-800">
-    <div class="max-w-6xl mx-auto">
-      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight">
-        Que tipos de treinamentos VOCÊ pode ministrar?
-      </h2>
-      <p class="text-slate-300 text-xs sm:text-sm font-semibold mt-2 mb-12">
-        Práticos e teóricos, online e presencial
-      </p>
-
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-        
-        <div class="flex flex-col items-center">
-          <div class="relative w-36 h-28 flex items-center justify-center mb-3">
-            <div class="absolute w-20 h-20 bg-amber-400 rounded-full right-2 top-1 -z-0"></div>
-            <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=300&q=80" alt="Frota Leve" class="h-16 w-32 object-contain relative z-10 drop-shadow-lg">
-          </div>
-          <span class="font-extrabold text-sm text-white">Frota leve</span>
-        </div>
-
-        <div class="flex flex-col items-center">
-          <div class="relative w-36 h-28 flex items-center justify-center mb-3">
-            <div class="absolute w-20 h-20 bg-amber-400 rounded-full right-2 top-1 -z-0"></div>
-            <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=300&q=80" alt="Frota Pesada" class="h-16 w-32 object-contain relative z-10 drop-shadow-lg">
-          </div>
-          <span class="font-extrabold text-sm text-white">Frota pesada</span>
-        </div>
-
-        <div class="flex flex-col items-center">
-          <div class="relative w-36 h-28 flex items-center justify-center mb-3">
-            <div class="absolute w-20 h-20 bg-amber-400 rounded-full right-2 top-1 -z-0"></div>
-            <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=300&q=80" alt="Moto" class="h-16 w-32 object-contain relative z-10 drop-shadow-lg">
-          </div>
-          <span class="font-extrabold text-sm text-white">Moto</span>
-        </div>
-
-        <div class="flex flex-col items-center">
-          <div class="relative w-36 h-28 flex items-center justify-center mb-3">
-            <div class="absolute w-20 h-20 bg-amber-400 rounded-full right-2 top-1 -z-0"></div>
-            <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=300&q=80" alt="4x4" class="h-16 w-32 object-contain relative z-10 drop-shadow-lg">
-          </div>
-          <span class="font-extrabold text-sm text-white">4x4</span>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ======================================================== -->
-  <!-- SEÇÃO: REQUISITOS OBRIGATÓRIOS (AMARELO / BRANCO / AZUL)-->
-  <!-- ======================================================== -->
-  <section class="bg-[#ffb703] py-20 px-6 text-center border-b border-amber-500">
-    <div class="max-w-6xl mx-auto">
-      <h2 class="text-[#091a36] text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight mb-12">
-        Requisitos Obrigatórios
-      </h2>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-        
-        <div class="flex flex-col items-center text-center">
-          <div class="w-36 h-36 rounded-3xl bg-white flex items-center justify-center text-4xl text-[#091a36] shadow-xl mb-4 border border-slate-100">
-            <i class="fa-solid fa-certificate text-amber-500"></i>
-          </div>
-          <p class="text-xs sm:text-[13px] font-bold text-slate-950 leading-snug max-w-[200px]">
-            Experiência comprovada em treinamentos de Direção Segura para motoristas.
-          </p>
-        </div>
-
-        <div class="flex flex-col items-center text-center">
-          <div class="w-36 h-36 rounded-3xl bg-white flex items-center justify-center text-4xl text-[#091a36] shadow-xl mb-4 border border-slate-100">
-            <i class="fa-solid fa-user-graduate text-amber-500"></i>
-          </div>
-          <p class="text-xs sm:text-[13px] font-bold text-slate-950 leading-snug max-w-[200px]">
-            Estar disposto a assumir novas responsabilidades
-          </p>
-        </div>
-
-        <div class="flex flex-col items-center text-center">
-          <div class="w-36 h-36 rounded-3xl bg-white flex items-center justify-center text-4xl text-[#091a36] shadow-xl mb-4 border border-slate-100">
-            <i class="fa-solid fa-handshake text-amber-500"></i>
-          </div>
-          <p class="text-xs sm:text-[13px] font-bold text-slate-950 leading-snug max-w-[200px]">
-            Ter comprometimento
-          </p>
-        </div>
-
-        <div class="flex flex-col items-center text-center">
-          <div class="w-36 h-36 rounded-3xl bg-white flex items-center justify-center text-4xl text-[#091a36] shadow-xl mb-4 border border-slate-100">
-            <i class="fa-solid fa-hand-holding-hand text-amber-500"></i>
-          </div>
-          <p class="text-xs sm:text-[13px] font-bold text-slate-950 leading-snug max-w-[200px]">
-            Ser prudente
-          </p>
-        </div>
-
-      </div>
-
-      <div class="space-y-4">
-        <h4 class="text-base sm:text-lg font-black text-slate-950">
-          Você tem o que é preciso?
-        </h4>
-        <div>
-          <a href="#cadastro" class="inline-block rounded-full bg-[#e60000] px-10 py-3.5 text-xs sm:text-sm font-black uppercase tracking-wider text-white shadow-xl hover:bg-red-700 hover:scale-105 transition transform">
-            Faça parte desse time!
-          </a>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ======================================================== -->
-  <!-- SEÇÃO: MAPA DE INSTRUTORES POR ESTADO DO BRASIL (IMAGEM 2)-->
-  <!-- ======================================================== -->
+  <!-- ========================================================================= -->
+  <!-- SEÇÃO: MAPA DE INSTRUTORES POR ESTADO DO BRASIL + 9 CARDS DE INSTRUTORES  -->
+  <!-- ========================================================================= -->
   <section id="buscar-instrutor" class="py-20 bg-[#091a36] text-white relative">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       
@@ -570,7 +687,7 @@
         <span class="inline-flex items-center gap-2 rounded-full bg-amber-400/20 px-3.5 py-1 text-xs font-black uppercase tracking-widest text-amber-300 border border-amber-400/30">
           <i class="fa-solid fa-map-location-dot"></i> Cobertura Nacional
         </span>
-        <h2 class="text-3xl sm:text-4xl font-black tracking-tight mt-3">
+        <h2 class="text-3xl sm:text-4xl font-black tracking-tight mt-3 font-title">
           Mapa de Instrutores por Estado do Brasil
         </h2>
         <p class="text-slate-300 text-sm sm:text-base mt-2">
@@ -578,15 +695,14 @@
         </p>
       </div>
 
-      <!-- MAPA DA IMAGEM 2 + PAINEL DE DADOS ESTADUAIS -->
+      <!-- MAPA + PAINEL DE DADOS -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#0d234a] p-6 sm:p-8 rounded-3xl border border-slate-700 shadow-2xl mb-14">
         
-        <!-- Painel Lateral Interativo -->
         <div class="lg:col-span-5 space-y-6">
           <div class="bg-[#091a36] p-6 rounded-2xl border border-slate-700">
             <span class="text-[10px] font-bold uppercase tracking-widest text-slate-400 block mb-1">Estado Selecionado</span>
             <div class="flex items-center justify-between">
-              <h3 id="ufNome" class="text-2xl sm:text-3xl font-black text-amber-400">São Paulo (SP)</h3>
+              <h3 id="ufNome" class="text-2xl sm:text-3xl font-black text-amber-400 font-title">São Paulo (SP)</h3>
               <span id="ufSigla" class="text-xs bg-amber-400/20 text-amber-300 border border-amber-400/40 px-3 py-1 rounded-full font-bold">SP</span>
             </div>
             
@@ -617,7 +733,6 @@
             </div>
           </div>
 
-          <!-- Atalhos Rápidos para os Principais Estados da Imagem 2 -->
           <div class="pt-2">
             <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-2">Clique para alternar o estado:</span>
             <div class="flex flex-wrap gap-1.5">
@@ -628,12 +743,10 @@
               <button onclick="selecionarEstado('Rio Grande do Sul (RS)', 'RS', 1620, '4.9', 'Porto Alegre, Caxias do Sul, Pelotas')" class="px-2.5 py-1 rounded bg-[#091a36] text-xs font-bold hover:bg-amber-400 hover:text-slate-950 border border-slate-700 transition">RS</button>
               <button onclick="selecionarEstado('Bahia (BA)', 'BA', 1890, '4.8', 'Salvador, Feira de Santana, Vitória da Conquista')" class="px-2.5 py-1 rounded bg-[#091a36] text-xs font-bold hover:bg-amber-400 hover:text-slate-950 border border-slate-700 transition">BA</button>
               <button onclick="selecionarEstado('Distrito Federal (DF)', 'DF', 890, '5.0', 'Brasília, Taguatinga, Ceilândia')" class="px-2.5 py-1 rounded bg-[#091a36] text-xs font-bold hover:bg-amber-400 hover:text-slate-950 border border-slate-700 transition">DF</button>
-              <button onclick="selecionarEstado('Amazonas (AM)', 'AM', 640, '4.8', 'Manaus, Parintins, Itacoatiara')" class="px-2.5 py-1 rounded bg-[#091a36] text-xs font-bold hover:bg-amber-400 hover:text-slate-950 border border-slate-700 transition">AM</button>
             </div>
           </div>
         </div>
 
-        <!-- IMAGEM 2: MAPA CARTOGRÁFICO DO BRASIL POR ESTADO -->
         <div class="lg:col-span-7 flex flex-col items-center justify-center p-3 bg-white rounded-2xl shadow-xl border-4 border-amber-400/40">
           <img 
             src="https://lh3.googleusercontent.com/pw/AP1GczP5gBuHJ0lUsVKKgr5j0XM8RaRljxCwW4x9mxxgFYBKkSRGf6TQ3bG55Rw7VRkwZD2z6NxpWCYiGPTrA8mt2HjhbEnh6sqZXikreQoalA-zsqXiOtBz0hpqEZpK66JsVp_8sTJg_uYbsghNxGB42Muv=w802-h599-s-no-gm?authuser=0" 
@@ -647,7 +760,11 @@
 
       </div>
 
-      <!-- CARDS HORIZONTAIS DE INSTRUTORES ASSOCIADOS -->
+      <!-- ======================================================== -->
+      <!-- OS 9 CARDS DE INSTRUTORES COM SUAS FUNCIONALIDADES       -->
+      <!-- ======================================================== -->
+
+      <!-- GRUPO 1: 3 INSTRUTORES COM AVALIAÇÃO MÁXIMA (NOTA 10) -->
       <div class="mb-14">
         <div class="flex items-center justify-between mb-4 border-b border-slate-800 pb-3">
           <div class="flex items-center gap-3">
@@ -656,18 +773,18 @@
             </span>
             <div>
               <h3 class="text-xl font-black text-white tracking-tight flex items-center gap-2">
-                Instrutores Recomendados
-                <span class="text-[11px] bg-amber-400/20 text-amber-300 border border-amber-400/30 px-2.5 py-0.5 rounded-full font-bold">Mais bem avaliados</span>
+                Instrutores Recomendados de Excelência
+                <span class="text-[11px] bg-amber-400/20 text-amber-300 border border-amber-400/30 px-2.5 py-0.5 rounded-full font-bold">Avaliação 10.0 • Máxima</span>
               </h3>
-              <p class="text-xs text-slate-400">Profissionais com metodologia ABRINST, aplicativo do aluno e trajeto gravado por GPS ao vivo.</p>
+              <p class="text-xs text-slate-400">Profissionais com tecnologia completa: site próprio, aplicativo do aluno, LADV digital e trajeto com GPS ao vivo.</p>
             </div>
           </div>
         </div>
 
         <div class="netflix-slider">
           
-          <!-- Card 1 -->
-          <div class="netflix-card bg-[#0d234a] rounded-3xl border border-slate-700 p-5 shadow-2xl flex flex-col justify-between relative overflow-hidden group hover:border-amber-400/80 transition">
+          <!-- Card 1 (Nota 10) -->
+          <div onclick="abrirPerfilModal('Marcos Silva', '5.0 (10/10)', 'HB20 1.6 (Duplo Comando)', 'São Paulo / Francisco Morato - SP', 'instrutormarcossilva.previatreinamentos.com.br', true)" class="netflix-card bg-[#0d234a] rounded-3xl border-2 border-amber-400/80 p-5 shadow-2xl flex flex-col justify-between cursor-pointer group hover:border-amber-300 transition">
             <div>
               <div class="flex items-center gap-3 mb-4">
                 <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=200&q=80" alt="Prof. Marcos Silva" class="h-14 w-14 rounded-2xl object-cover border-2 border-amber-400 shadow-md">
@@ -692,11 +809,11 @@
               </div>
 
               <div class="bg-[#091a36] rounded-2xl p-3 border border-slate-800 mb-3 space-y-1.5">
-                <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Métricas do Instrutor:</div>
+                <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Métricas de Satisfação:</div>
                 <div>
                   <div class="flex justify-between text-[10px] font-bold text-slate-300 mb-0.5">
                     <span>Didática</span>
-                    <span class="text-amber-400">10 / 10</span>
+                    <span class="text-amber-400 font-black">10 / 10</span>
                   </div>
                   <div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
                     <div class="h-full bg-amber-400 rounded-full" style="width: 100%"></div>
@@ -705,16 +822,16 @@
                 <div>
                   <div class="flex justify-between text-[10px] font-bold text-slate-300 mb-0.5">
                     <span>Atendimento</span>
-                    <span class="text-amber-400">9.9 / 10</span>
+                    <span class="text-amber-400 font-black">10 / 10</span>
                   </div>
                   <div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
-                    <div class="h-full bg-amber-400 rounded-full" style="width: 99%"></div>
+                    <div class="h-full bg-amber-400 rounded-full" style="width: 100%"></div>
                   </div>
                 </div>
                 <div>
                   <div class="flex justify-between text-[10px] font-bold text-slate-300 mb-0.5">
                     <span>Cuidados com o Carro</span>
-                    <span class="text-amber-400">10 / 10</span>
+                    <span class="text-amber-400 font-black">10 / 10</span>
                   </div>
                   <div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
                     <div class="h-full bg-amber-400 rounded-full" style="width: 100%"></div>
@@ -724,35 +841,35 @@
 
               <div class="bg-[#091a36]/60 border border-slate-700 rounded-2xl p-3 mb-4 text-[11px] text-slate-300 space-y-1">
                 <div class="font-bold text-amber-400 flex items-center gap-1.5">
-                  <i class="fa-solid fa-circle-check"></i> Recursos Inclusos:
+                  <i class="fa-solid fa-circle-check"></i> Recursos e Vantagens PREVIA:
                 </div>
-                <div class="text-[10px] text-slate-300">• Aplicativo próprio no seu celular e agendamento online</div>
-                <div class="text-[10px] text-slate-300">• Acompanhamento por GPS ao vivo para sua família</div>
-                <div class="text-[10px] text-slate-300">• Matrícula simplificada, LADV digital e contrato na tela</div>
+                <div class="text-[10px] text-slate-300">• Site e App próprio no telemóvel do aluno</div>
+                <div class="text-[10px] text-slate-300">• Trajeto por GPS ao vivo para a família</div>
+                <div class="text-[10px] text-slate-300">• Contrato digital assinado na tela e LADV online</div>
               </div>
             </div>
 
-            <button onclick="abrirPerfilModal('Marcos Silva', '5.0', 'HB20 1.6', 'São Paulo - SP', 'instrutormarcossilva.previatreinamentos.com.br', true)" class="w-full rounded-xl bg-amber-400 py-3 text-xs font-black uppercase tracking-wider text-slate-950 hover:bg-amber-300 transition shadow-lg flex items-center justify-center gap-2">
+            <button class="w-full rounded-xl bg-amber-400 py-3 text-xs font-black uppercase tracking-wider text-slate-950 hover:bg-amber-300 transition shadow-lg flex items-center justify-center gap-2">
               <span>Saiba Mais & Agendar</span>
               <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
             </button>
           </div>
 
-          <!-- Card 2 -->
-          <div class="netflix-card bg-[#0d234a] rounded-3xl border border-slate-700 p-5 shadow-2xl flex flex-col justify-between relative overflow-hidden group hover:border-amber-400/80 transition">
+          <!-- Card 2 (Nota 10) -->
+          <div onclick="abrirPerfilModal('Juliana Duarte', '5.0 (10/10)', 'Chevrolet Onix (Direção Elétrica)', 'Belo Horizonte / Contagem - MG', 'instrutorajulianaduarte.previatreinamentos.com.br', true)" class="netflix-card bg-[#0d234a] rounded-3xl border-2 border-amber-400/80 p-5 shadow-2xl flex flex-col justify-between cursor-pointer group hover:border-amber-300 transition">
             <div>
               <div class="flex items-center gap-3 mb-4">
                 <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80" alt="Profa. Juliana Duarte" class="h-14 w-14 rounded-2xl object-cover border-2 border-amber-400 shadow-md">
                 <div>
                   <h4 class="font-extrabold text-white text-base leading-snug">Profa. Juliana Duarte</h4>
                   <div class="flex items-center gap-1.5 text-xs text-amber-400 font-black">
-                    <span>4.9</span>
+                    <span>5.0</span>
                     <div class="flex text-amber-400 text-[10px]">
                       <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
-                    <span class="text-slate-400 font-normal text-[10px]">(142 avaliações)</span>
+                    <span class="text-slate-400 font-normal text-[10px]">(195 avaliações)</span>
                   </div>
-                  <span class="text-[11px] text-slate-400 font-medium">Belo Horizonte / MG • Especialista em Fobia</span>
+                  <span class="text-[11px] text-slate-400 font-medium">Belo Horizonte - MG • Fobia ao Volante</span>
                 </div>
               </div>
 
@@ -764,11 +881,11 @@
               </div>
 
               <div class="bg-[#091a36] rounded-2xl p-3 border border-slate-800 mb-3 space-y-1.5">
-                <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Métricas da Instrutora:</div>
+                <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Métricas de Satisfação:</div>
                 <div>
                   <div class="flex justify-between text-[10px] font-bold text-slate-300 mb-0.5">
                     <span>Didática</span>
-                    <span class="text-amber-400">10 / 10</span>
+                    <span class="text-amber-400 font-black">10 / 10</span>
                   </div>
                   <div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
                     <div class="h-full bg-amber-400 rounded-full" style="width: 100%"></div>
@@ -777,34 +894,528 @@
                 <div>
                   <div class="flex justify-between text-[10px] font-bold text-slate-300 mb-0.5">
                     <span>Atendimento</span>
-                    <span class="text-amber-400">9.8 / 10</span>
+                    <span class="text-amber-400 font-black">10 / 10</span>
                   </div>
                   <div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
-                    <div class="h-full bg-amber-400 rounded-full" style="width: 98%"></div>
+                    <div class="h-full bg-amber-400 rounded-full" style="width: 100%"></div>
                   </div>
                 </div>
                 <div>
                   <div class="flex justify-between text-[10px] font-bold text-slate-300 mb-0.5">
                     <span>Cuidados com o Carro</span>
-                    <span class="text-amber-400">9.9 / 10</span>
+                    <span class="text-amber-400 font-black">10 / 10</span>
                   </div>
                   <div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
-                    <div class="h-full bg-amber-400 rounded-full" style="width: 99%"></div>
+                    <div class="h-full bg-amber-400 rounded-full" style="width: 100%"></div>
                   </div>
                 </div>
               </div>
 
               <div class="bg-[#091a36]/60 border border-slate-700 rounded-2xl p-3 mb-4 text-[11px] text-slate-300 space-y-1">
                 <div class="font-bold text-amber-400 flex items-center gap-1.5">
-                  <i class="fa-solid fa-circle-check"></i> Recursos Inclusos:
+                  <i class="fa-solid fa-circle-check"></i> Recursos e Vantagens PREVIA:
                 </div>
-                <div class="text-[10px] text-slate-300">• Foco no desbloqueio e superação do medo de dirigir</div>
-                <div class="text-[10px] text-slate-300">• Transmissão de rota por GPS ao vivo para familiares</div>
+                <div class="text-[10px] text-slate-300">• Especialista em superação do medo de conduzir</div>
+                <div class="text-[10px] text-slate-300">• Trajeto por GPS ao vivo para familiares</div>
                 <div class="text-[10px] text-slate-300">• Portal do aluno com fichas pedagógicas e evolução</div>
               </div>
             </div>
 
-            <button onclick="abrirPerfilModal('Juliana Duarte', '4.9', 'Chevrolet Onix', 'Belo Horizonte - MG', 'instrutorajulianaduarte.previatreinamentos.com.br', true)" class="w-full rounded-xl bg-amber-400 py-3 text-xs font-black uppercase tracking-wider text-slate-950 hover:bg-amber-300 transition shadow-lg flex items-center justify-center gap-2">
+            <button class="w-full rounded-xl bg-amber-400 py-3 text-xs font-black uppercase tracking-wider text-slate-950 hover:bg-amber-300 transition shadow-lg flex items-center justify-center gap-2">
+              <span>Saiba Mais & Agendar</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+            </button>
+          </div>
+
+          <!-- Card 3 (Nota 10) -->
+          <div onclick="abrirPerfilModal('Eduardo Nogueira', '5.0 (10/10)', 'Volkswagen Polo 1.0 TSI', 'Curitiba - PR', 'instrutoreduardonogueira.previatreinamentos.com.br', true)" class="netflix-card bg-[#0d234a] rounded-3xl border-2 border-amber-400/80 p-5 shadow-2xl flex flex-col justify-between cursor-pointer group hover:border-amber-300 transition">
+            <div>
+              <div class="flex items-center gap-3 mb-4">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" alt="Prof. Eduardo Nogueira" class="h-14 w-14 rounded-2xl object-cover border-2 border-amber-400 shadow-md">
+                <div>
+                  <h4 class="font-extrabold text-white text-base leading-snug">Prof. Eduardo Nogueira</h4>
+                  <div class="flex items-center gap-1.5 text-xs text-amber-400 font-black">
+                    <span>5.0</span>
+                    <div class="flex text-amber-400 text-[10px]">
+                      <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <span class="text-slate-400 font-normal text-[10px]">(168 avaliações)</span>
+                  </div>
+                  <span class="text-[11px] text-slate-400 font-medium">Curitiba - PR • Cat. B e C</span>
+                </div>
+              </div>
+
+              <div class="relative rounded-2xl overflow-hidden mb-3 border border-slate-800 bg-slate-950">
+                <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=400&q=80" alt="Veículo Polo" class="h-28 w-full object-cover">
+                <div class="absolute bottom-2 left-2 bg-slate-950/85 px-2.5 py-0.5 rounded-md text-[10px] font-bold text-white border border-slate-700">
+                  Veículo: VW Polo TSI (Duplo Comando)
+                </div>
+              </div>
+
+              <div class="bg-[#091a36] rounded-2xl p-3 border border-slate-800 mb-3 space-y-1.5">
+                <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Métricas de Satisfação:</div>
+                <div>
+                  <div class="flex justify-between text-[10px] font-bold text-slate-300 mb-0.5">
+                    <span>Didática</span>
+                    <span class="text-amber-400 font-black">10 / 10</span>
+                  </div>
+                  <div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+                    <div class="h-full bg-amber-400 rounded-full" style="width: 100%"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between text-[10px] font-bold text-slate-300 mb-0.5">
+                    <span>Atendimento</span>
+                    <span class="text-amber-400 font-black">10 / 10</span>
+                  </div>
+                  <div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+                    <div class="h-full bg-amber-400 rounded-full" style="width: 100%"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between text-[10px] font-bold text-slate-300 mb-0.5">
+                    <span>Cuidados com o Carro</span>
+                    <span class="text-amber-400 font-black">10 / 10</span>
+                  </div>
+                  <div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+                    <div class="h-full bg-amber-400 rounded-full" style="width: 100%"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-[#091a36]/60 border border-slate-700 rounded-2xl p-3 mb-4 text-[11px] text-slate-300 space-y-1">
+                <div class="font-bold text-amber-400 flex items-center gap-1.5">
+                  <i class="fa-solid fa-circle-check"></i> Recursos e Vantagens PREVIA:
+                </div>
+                <div class="text-[10px] text-slate-300">• App próprio com agendamento online integrado</div>
+                <div class="text-[10px] text-slate-300">• Transmissão ao vivo de trajeto para a família</div>
+                <div class="text-[10px] text-slate-300">• Contrato digital assinado no telemóvel</div>
+              </div>
+            </div>
+
+            <button class="w-full rounded-xl bg-amber-400 py-3 text-xs font-black uppercase tracking-wider text-slate-950 hover:bg-amber-300 transition shadow-lg flex items-center justify-center gap-2">
+              <span>Saiba Mais & Agendar</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- GRUPO 2: 3 INSTRUTORES COM AVALIAÇÃO ENTRE 8 E 9 -->
+      <div class="mb-14">
+        <div class="flex items-center justify-between mb-4 border-b border-slate-800 pb-3">
+          <div class="flex items-center gap-3">
+            <span class="flex h-7 w-7 items-center justify-center rounded-lg bg-blue-600 text-white text-xs font-black shadow-lg">
+              ★
+            </span>
+            <div>
+              <h3 class="text-lg font-bold text-white tracking-tight flex items-center gap-2">
+                Instrutores Qualificados
+                <span class="text-[11px] bg-blue-900/60 text-blue-200 border border-blue-600/40 px-2.5 py-0.5 rounded-full font-bold">Avaliação 8.5 a 9.5</span>
+              </h3>
+              <p class="text-xs text-slate-400">Profissionais experientes, dedicados e com alto índice de aprovação nas aulas práticas.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="netflix-slider">
+          
+          <!-- Card 4 (Notas 8 a 9) -->
+          <div onclick="abrirPerfilModal('Renato Lima', '4.7 (9.0/10)', 'Fiat Argo 1.0 (Manual)', 'Belo Horizonte - MG', 'instrutorrenatolima.abrinst.org.br', false)" class="netflix-card bg-[#0d234a] rounded-3xl border border-slate-700 p-5 shadow-xl flex flex-col justify-between cursor-pointer group hover:border-blue-400 transition">
+            <div>
+              <div class="flex items-center gap-3 mb-4">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80" alt="Prof. Renato Lima" class="h-14 w-14 rounded-2xl object-cover border border-slate-600">
+                <div>
+                  <h4 class="font-extrabold text-white text-base leading-snug">Prof. Renato Lima</h4>
+                  <div class="flex items-center gap-1.5 text-xs text-amber-400 font-black">
+                    <span>4.7</span>
+                    <div class="flex text-amber-400 text-[10px]">
+                      <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <span class="text-slate-400 font-normal text-[10px]">(98 avaliações)</span>
+                  </div>
+                  <span class="text-[11px] text-slate-400 font-medium">Belo Horizonte - MG • Cat. B</span>
+                </div>
+              </div>
+
+              <div class="relative rounded-2xl overflow-hidden mb-3 border border-slate-800 bg-slate-950">
+                <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=400&q=80" alt="Veículo Argo" class="h-28 w-full object-cover">
+                <div class="absolute bottom-2 left-2 bg-slate-950/85 px-2.5 py-0.5 rounded-md text-[10px] font-bold text-white border border-slate-700">
+                  Veículo: Fiat Argo 1.0
+                </div>
+              </div>
+
+              <div class="bg-[#091a36] rounded-2xl p-3 border border-slate-800 mb-4 space-y-1.5">
+                <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Métricas de Satisfação:</div>
+                <div>
+                  <div class="flex justify-between text-[10px] font-bold text-slate-300 mb-0.5">
+                    <span>Didática</span>
+                    <span class="text-blue-300 font-bold">9.2 / 10</span>
+                  </div>
+                  <div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+                    <div class="h-full bg-blue-500 rounded-full" style="width: 92%"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between text-[10px] font-bold text-slate-300 mb-0.5">
+                    <span>Atendimento</span>
+                    <span class="text-blue-300 font-bold">8.9 / 10</span>
+                  </div>
+                  <div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+                    <div class="h-full bg-blue-500 rounded-full" style="width: 89%"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between text-[10px] font-bold text-slate-300 mb-0.5">
+                    <span>Cuidados com o Carro</span>
+                    <span class="text-blue-300 font-bold">9.4 / 10</span>
+                  </div>
+                  <div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+                    <div class="h-full bg-blue-500 rounded-full" style="width: 94%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button class="w-full rounded-xl bg-slate-800 py-3 text-xs font-black uppercase tracking-wider text-slate-200 hover:bg-slate-700 transition flex items-center justify-center gap-2">
+              <span>Saiba Mais & Agendar</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+            </button>
+          </div>
+
+          <!-- Card 5 (Notas 8 a 9) -->
+          <div onclick="abrirPerfilModal('Roberto Nunes', '4.6 (8.8/10)', 'Honda CG 160 & Polo', 'Campinas - SP', 'instrutorrobertonunes.abrinst.org.br', false)" class="netflix-card bg-[#0d234a] rounded-3xl border border-slate-700 p-5 shadow-xl flex flex-col justify-between cursor-pointer group hover:border-blue-400 transition">
+            <div>
+              <div class="flex items-center gap-3 mb-4">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80" alt="Prof. Roberto Nunes" class="h-14 w-14 rounded-2xl object-cover border border-slate-600">
+                <div>
+                  <h4 class="font-extrabold text-white text-base leading-snug">Prof. Roberto Nunes</h4>
+                  <div class="flex items-center gap-1.5 text-xs text-amber-400 font-black">
+                    <span>4.6</span>
+                    <div class="flex text-amber-400 text-[10px]">
+                      <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <span class="text-slate-400 font-normal text-[10px]">(84 avaliações)</span>
+                  </div>
+                  <span class="text-[11px] text-slate-400 font-medium">Campinas - SP • Cat. A e B</span>
+                </div>
+              </div>
+
+              <div class="relative rounded-2xl overflow-hidden mb-3 border border-slate-800 bg-slate-950">
+                <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=400&q=80" alt="Moto e Carro" class="h-28 w-full object-cover">
+                <div class="absolute bottom-2 left-2 bg-slate-950/85 px-2.5 py-0.5 rounded-md text-[10px] font-bold text-white border border-slate-700">
+                  Veículo: Honda CG 160 & Polo
+                </div>
+              </div>
+
+              <div class="bg-[#091a36] rounded-2xl p-3 border border-slate-800 mb-4 space-y-1.5">
+                <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Métricas de Satisfação:</div>
+                <div>
+                  <div class="flex justify-between text-[10px] font-bold text-slate-300 mb-0.5">
+                    <span>Didática</span>
+                    <span class="text-blue-300 font-bold">8.9 / 10</span>
+                  </div>
+                  <div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+                    <div class="h-full bg-blue-500 rounded-full" style="width: 89%"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between text-[10px] font-bold text-slate-300 mb-0.5">
+                    <span>Atendimento</span>
+                    <span class="text-blue-300 font-bold">8.7 / 10</span>
+                  </div>
+                  <div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+                    <div class="h-full bg-blue-500 rounded-full" style="width: 87%"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between text-[10px] font-bold text-slate-300 mb-0.5">
+                    <span>Cuidados com o Carro</span>
+                    <span class="text-blue-300 font-bold">9.1 / 10</span>
+                  </div>
+                  <div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+                    <div class="h-full bg-blue-500 rounded-full" style="width: 91%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button class="w-full rounded-xl bg-slate-800 py-3 text-xs font-black uppercase tracking-wider text-slate-200 hover:bg-slate-700 transition flex items-center justify-center gap-2">
+              <span>Saiba Mais & Agendar</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+            </button>
+          </div>
+
+          <!-- Card 6 (Notas 8 a 9) -->
+          <div onclick="abrirPerfilModal('Cláudia Meireles', '4.8 (9.3/10)', 'Toyota Yaris 1.5', 'Rio de Janeiro - RJ', 'instrutoraclaudiameireles.abrinst.org.br', false)" class="netflix-card bg-[#0d234a] rounded-3xl border border-slate-700 p-5 shadow-xl flex flex-col justify-between cursor-pointer group hover:border-blue-400 transition">
+            <div>
+              <div class="flex items-center gap-3 mb-4">
+                <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=200&q=80" alt="Profa. Cláudia Meireles" class="h-14 w-14 rounded-2xl object-cover border border-slate-600">
+                <div>
+                  <h4 class="font-extrabold text-white text-base leading-snug">Profa. Cláudia Meireles</h4>
+                  <div class="flex items-center gap-1.5 text-xs text-amber-400 font-black">
+                    <span>4.8</span>
+                    <div class="flex text-amber-400 text-[10px]">
+                      <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <span class="text-slate-400 font-normal text-[10px]">(112 avaliações)</span>
+                  </div>
+                  <span class="text-[11px] text-slate-400 font-medium">Rio de Janeiro - RJ • Cat. B</span>
+                </div>
+              </div>
+
+              <div class="relative rounded-2xl overflow-hidden mb-3 border border-slate-800 bg-slate-950">
+                <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=400&q=80" alt="Toyota Yaris" class="h-28 w-full object-cover">
+                <div class="absolute bottom-2 left-2 bg-slate-950/85 px-2.5 py-0.5 rounded-md text-[10px] font-bold text-white border border-slate-700">
+                  Veículo: Toyota Yaris Automático
+                </div>
+              </div>
+
+              <div class="bg-[#091a36] rounded-2xl p-3 border border-slate-800 mb-4 space-y-1.5">
+                <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Métricas de Satisfação:</div>
+                <div>
+                  <div class="flex justify-between text-[10px] font-bold text-slate-300 mb-0.5">
+                    <span>Didática</span>
+                    <span class="text-blue-300 font-bold">9.4 / 10</span>
+                  </div>
+                  <div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+                    <div class="h-full bg-blue-500 rounded-full" style="width: 94%"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between text-[10px] font-bold text-slate-300 mb-0.5">
+                    <span>Atendimento</span>
+                    <span class="text-blue-300 font-bold">9.1 / 10</span>
+                  </div>
+                  <div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+                    <div class="h-full bg-blue-500 rounded-full" style="width: 91%"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between text-[10px] font-bold text-slate-300 mb-0.5">
+                    <span>Cuidados com o Carro</span>
+                    <span class="text-blue-300 font-bold">9.5 / 10</span>
+                  </div>
+                  <div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+                    <div class="h-full bg-blue-500 rounded-full" style="width: 95%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button class="w-full rounded-xl bg-slate-800 py-3 text-xs font-black uppercase tracking-wider text-slate-200 hover:bg-slate-700 transition flex items-center justify-center gap-2">
+              <span>Saiba Mais & Agendar</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- GRUPO 3: 3 INSTRUTORES COM AVALIAÇÃO ENTRE 7 E 9 -->
+      <div>
+        <div class="flex items-center justify-between mb-4 border-b border-slate-800 pb-3">
+          <div class="flex items-center gap-3">
+            <span class="flex h-7 w-7 items-center justify-center rounded-lg bg-slate-700 text-slate-300 text-xs font-black border border-slate-600">
+              ★
+            </span>
+            <div>
+              <h3 class="text-lg font-bold text-white tracking-tight flex items-center gap-2">
+                Instrutores Credenciados Regulares
+                <span class="text-[11px] bg-slate-800 text-slate-300 border border-slate-700 px-2.5 py-0.5 rounded-full font-bold">Avaliação 7.5 a 8.5</span>
+              </h3>
+              <p class="text-xs text-slate-400">Instrutores habilitados disponíveis para aulas particulares e formação inicial.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="netflix-slider">
+          
+          <!-- Card 7 (Notas 7 a 9) -->
+          <div onclick="abrirPerfilModal('Fernando Dias', '4.2 (7.9/10)', 'Renault Kwid 1.0', 'São Paulo - SP', 'instrutorfernandodias.abrinst.org.br', false)" class="netflix-card bg-[#0d234a] rounded-3xl border border-slate-800 p-5 shadow-lg flex flex-col justify-between cursor-pointer group hover:border-slate-500 transition">
+            <div>
+              <div class="flex items-center gap-3 mb-4">
+                <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=200&q=80" alt="Prof. Fernando Dias" class="h-14 w-14 rounded-2xl object-cover border border-slate-700">
+                <div>
+                  <h4 class="font-extrabold text-white text-base leading-snug">Prof. Fernando Dias</h4>
+                  <div class="flex items-center gap-1.5 text-xs text-amber-400 font-black">
+                    <span>4.2</span>
+                    <div class="flex text-amber-400 text-[10px]">
+                      <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+                    </div>
+                    <span class="text-slate-400 font-normal text-[10px]">(48 avaliações)</span>
+                  </div>
+                  <span class="text-[11px] text-slate-400 font-medium">São Paulo - SP • Cat. B</span>
+                </div>
+              </div>
+
+              <div class="relative rounded-2xl overflow-hidden mb-3 border border-slate-800 bg-slate-950">
+                <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=400&q=80" alt="Veículo Kwid" class="h-28 w-full object-cover">
+                <div class="absolute bottom-2 left-2 bg-slate-950/85 px-2.5 py-0.5 rounded-md text-[10px] font-bold text-white border border-slate-700">
+                  Veículo: Renault Kwid
+                </div>
+              </div>
+
+              <div class="bg-[#091a36] rounded-2xl p-3 border border-slate-800 mb-4 space-y-1.5">
+                <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Métricas de Satisfação:</div>
+                <div>
+                  <div class="flex justify-between text-[10px] font-bold text-slate-300 mb-0.5">
+                    <span>Didática</span>
+                    <span class="text-slate-400 font-bold">8.1 / 10</span>
+                  </div>
+                  <div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+                    <div class="h-full bg-slate-500 rounded-full" style="width: 81%"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between text-[10px] font-bold text-slate-300 mb-0.5">
+                    <span>Atendimento</span>
+                    <span class="text-slate-400 font-bold">7.8 / 10</span>
+                  </div>
+                  <div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+                    <div class="h-full bg-slate-500 rounded-full" style="width: 78%"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between text-[10px] font-bold text-slate-300 mb-0.5">
+                    <span>Cuidados com o Carro</span>
+                    <span class="text-slate-400 font-bold">8.4 / 10</span>
+                  </div>
+                  <div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+                    <div class="h-full bg-slate-500 rounded-full" style="width: 84%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button class="w-full rounded-xl bg-slate-800 py-3 text-xs font-black uppercase tracking-wider text-slate-200 hover:bg-slate-700 transition flex items-center justify-center gap-2">
+              <span>Saiba Mais & Agendar</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+            </button>
+          </div>
+
+          <!-- Card 8 (Notas 7 a 9) -->
+          <div onclick="abrirPerfilModal('Luciano Prado', '4.3 (8.2/10)', 'Chevrolet Celta 1.0', 'Salvador - BA', 'instrutorlucianoprado.abrinst.org.br', false)" class="netflix-card bg-[#0d234a] rounded-3xl border border-slate-800 p-5 shadow-lg flex flex-col justify-between cursor-pointer group hover:border-slate-500 transition">
+            <div>
+              <div class="flex items-center gap-3 mb-4">
+                <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=200&q=80" alt="Prof. Luciano Prado" class="h-14 w-14 rounded-2xl object-cover border border-slate-700">
+                <div>
+                  <h4 class="font-extrabold text-white text-base leading-snug">Prof. Luciano Prado</h4>
+                  <div class="flex items-center gap-1.5 text-xs text-amber-400 font-black">
+                    <span>4.3</span>
+                    <div class="flex text-amber-400 text-[10px]">
+                      <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+                    </div>
+                    <span class="text-slate-400 font-normal text-[10px]">(56 avaliações)</span>
+                  </div>
+                  <span class="text-[11px] text-slate-400 font-medium">Salvador - BA • Cat. B</span>
+                </div>
+              </div>
+
+              <div class="relative rounded-2xl overflow-hidden mb-3 border border-slate-800 bg-slate-950">
+                <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=400&q=80" alt="Veículo Celta" class="h-28 w-full object-cover">
+                <div class="absolute bottom-2 left-2 bg-slate-950/85 px-2.5 py-0.5 rounded-md text-[10px] font-bold text-white border border-slate-700">
+                  Veículo: Chevrolet Celta
+                </div>
+              </div>
+
+              <div class="bg-[#091a36] rounded-2xl p-3 border border-slate-800 mb-4 space-y-1.5">
+                <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Métricas de Satisfação:</div>
+                <div>
+                  <div class="flex justify-between text-[10px] font-bold text-slate-300 mb-0.5">
+                    <span>Didática</span>
+                    <span class="text-slate-400 font-bold">8.3 / 10</span>
+                  </div>
+                  <div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+                    <div class="h-full bg-slate-500 rounded-full" style="width: 83%"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between text-[10px] font-bold text-slate-300 mb-0.5">
+                    <span>Atendimento</span>
+                    <span class="text-slate-400 font-bold">7.9 / 10</span>
+                  </div>
+                  <div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+                    <div class="h-full bg-slate-500 rounded-full" style="width: 79%"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between text-[10px] font-bold text-slate-300 mb-0.5">
+                    <span>Cuidados com o Carro</span>
+                    <span class="text-slate-400 font-bold">8.5 / 10</span>
+                  </div>
+                  <div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+                    <div class="h-full bg-slate-500 rounded-full" style="width: 85%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button class="w-full rounded-xl bg-slate-800 py-3 text-xs font-black uppercase tracking-wider text-slate-200 hover:bg-slate-700 transition flex items-center justify-center gap-2">
+              <span>Saiba Mais & Agendar</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+            </button>
+          </div>
+
+          <!-- Card 9 (Notas 7 a 9) -->
+          <div onclick="abrirPerfilModal('Marcelo Tavares', '4.1 (7.7/10)', 'Ford Ka 1.0', 'Goiânia - GO', 'instrutormarcelotavares.abrinst.org.br', false)" class="netflix-card bg-[#0d234a] rounded-3xl border border-slate-800 p-5 shadow-lg flex flex-col justify-between cursor-pointer group hover:border-slate-500 transition">
+            <div>
+              <div class="flex items-center gap-3 mb-4">
+                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=200&q=80" alt="Prof. Marcelo Tavares" class="h-14 w-14 rounded-2xl object-cover border border-slate-700">
+                <div>
+                  <h4 class="font-extrabold text-white text-base leading-snug">Prof. Marcelo Tavares</h4>
+                  <div class="flex items-center gap-1.5 text-xs text-amber-400 font-black">
+                    <span>4.1</span>
+                    <div class="flex text-amber-400 text-[10px]">
+                      <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+                    </div>
+                    <span class="text-slate-400 font-normal text-[10px]">(39 avaliações)</span>
+                  </div>
+                  <span class="text-[11px] text-slate-400 font-medium">Goiânia - GO • Cat. B</span>
+                </div>
+              </div>
+
+              <div class="relative rounded-2xl overflow-hidden mb-3 border border-slate-800 bg-slate-950">
+                <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=400&q=80" alt="Veículo Ka" class="h-28 w-full object-cover">
+                <div class="absolute bottom-2 left-2 bg-slate-950/85 px-2.5 py-0.5 rounded-md text-[10px] font-bold text-white border border-slate-700">
+                  Veículo: Ford Ka 1.0
+                </div>
+              </div>
+
+              <div class="bg-[#091a36] rounded-2xl p-3 border border-slate-800 mb-4 space-y-1.5">
+                <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Métricas de Satisfação:</div>
+                <div>
+                  <div class="flex justify-between text-[10px] font-bold text-slate-300 mb-0.5">
+                    <span>Didática</span>
+                    <span class="text-slate-400 font-bold">7.9 / 10</span>
+                  </div>
+                  <div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+                    <div class="h-full bg-slate-500 rounded-full" style="width: 79%"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between text-[10px] font-bold text-slate-300 mb-0.5">
+                    <span>Atendimento</span>
+                    <span class="text-slate-400 font-bold">7.6 / 10</span>
+                  </div>
+                  <div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+                    <div class="h-full bg-slate-500 rounded-full" style="width: 76%"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between text-[10px] font-bold text-slate-300 mb-0.5">
+                    <span>Cuidados com o Carro</span>
+                    <span class="text-slate-400 font-bold">8.1 / 10</span>
+                  </div>
+                  <div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+                    <div class="h-full bg-slate-500 rounded-full" style="width: 81%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button class="w-full rounded-xl bg-slate-800 py-3 text-xs font-black uppercase tracking-wider text-slate-200 hover:bg-slate-700 transition flex items-center justify-center gap-2">
               <span>Saiba Mais & Agendar</span>
               <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
             </button>
@@ -836,7 +1447,7 @@
 
       <div class="space-y-4 text-xs text-slate-300">
         <div>
-          <span class="font-bold text-white block mb-1">Veículo de Instrução:</span>
+          <span class="font-bold text-white block mb-1">Veículo de Instrução Homologado:</span>
           <p id="modalVeiculo" class="bg-[#091a36] p-3 rounded-xl border border-slate-700 text-slate-200 font-medium">HB20 1.6</p>
         </div>
 
@@ -846,16 +1457,16 @@
           </span>
           <p class="text-slate-300">Este instrutor conta com sistema digital completo para o seu aprendizado:</p>
           <ul class="list-disc list-inside space-y-1 text-slate-300 font-medium">
-            <li><strong>Aplicativo Próprio (PWA):</strong> Agende aulas e acompanhe sua evolução direto no celular.</li>
-            <li><strong>Envio de LADV pelo Celular:</strong> Validação ágil de documentos.</li>
-            <li><strong>Contrato Digital Assinado na Tela:</strong> Transparência total.</li>
+            <li><strong>Aplicativo Próprio (PWA):</strong> Agende aulas e acompanhe sua evolução direto no telemóvel.</li>
+            <li><strong>Envio de LADV pelo Telemóvel:</strong> Validação ágil de documentos.</li>
+            <li><strong>Contrato Digital Assinado na Tela:</strong> Transparência total sem papel.</li>
             <li><strong>Trajeto Gravado por GPS ao Vivo:</strong> A sua família acompanha o trajeto durante a aula.</li>
             <li><strong>Fichas Pedagógicas:</strong> Avaliação detalhada das suas notas e evolução prática.</li>
           </ul>
         </div>
 
         <div>
-          <span class="font-bold text-white block mb-1">Página do Instrutor:</span>
+          <span class="font-bold text-white block mb-1">Endereço Web Oficial do Instrutor:</span>
           <a id="modalLink" href="#" target="_blank" class="block bg-[#091a36] p-3 rounded-xl border border-slate-700 text-amber-400 font-mono text-center hover:bg-slate-800 transition">
             instrutor.previatreinamentos.com.br
           </a>
@@ -878,7 +1489,7 @@
         <span class="inline-flex items-center gap-2 rounded-full bg-blue-100 px-3.5 py-1 text-xs font-black uppercase tracking-widest text-blue-950 border border-blue-300">
           <i class="fa-solid fa-graduation-cap text-amber-500"></i> Guia Oficial do Futuro Condutor
         </span>
-        <h2 class="text-3xl sm:text-4xl font-black text-slate-950 mt-3 tracking-tight">
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-950 mt-3 tracking-tight font-title">
           Entenda o Processo da CNH no Brasil
         </h2>
         <p class="text-slate-600 text-sm sm:text-base mt-2">
@@ -912,132 +1523,14 @@
     </div>
   </section>
 
-  <!-- SEÇÃO: FAQ (PERGUNTAS FREQUENTES) -->
-  <section id="faq" class="py-20 bg-white border-b border-slate-200">
-    <div class="mx-auto max-w-4xl px-6 lg:px-8">
-      
-      <div class="text-center max-w-2xl mx-auto mb-14">
-        <span class="inline-flex items-center gap-2 rounded-full bg-blue-100 px-3.5 py-1 text-xs font-bold uppercase tracking-widest text-blue-950">
-          <i class="fa-solid fa-circle-question text-amber-500"></i> Dúvidas Frequentes
-        </span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-950 mt-3 tracking-tight">
-          Perguntas Frequentes (FAQ)
-        </h2>
-        <p class="text-slate-600 text-sm mt-2">
-          Respostas claras sobre a atuação da ABRINST, direitos do instrutor associado e formação do condutor.
-        </p>
-      </div>
-
-      <div class="space-y-4">
-        <div class="rounded-2xl border border-slate-200 bg-slate-50 overflow-hidden">
-          <button onclick="toggleFaq(1)" class="w-full flex justify-between items-center p-5 text-left font-bold text-slate-900 hover:text-blue-900 transition">
-            <span>O que é a ABRINST e qual a sua missão?</span>
-            <i id="faq-icon-1" class="fa-solid fa-chevron-down text-xs text-amber-500 transition-transform"></i>
-          </button>
-          <div id="faq-content-1" class="hidden px-5 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 pt-3">
-            A ABRINST (Associação Brasileira dos Instrutores de Trânsito) é uma entidade de classe criada para unir, valorizar e capacitar os instrutores de trânsito em todo o Brasil. Promovemos a autonomia profissional, assessoria jurídica, padronização pedagógica e educação de trânsito nas escolas, empresas e universidades.
-          </div>
-        </div>
-
-        <div class="rounded-2xl border border-slate-200 bg-slate-50 overflow-hidden">
-          <button onclick="toggleFaq(2)" class="w-full flex justify-between items-center p-5 text-left font-bold text-slate-900 hover:text-blue-900 transition">
-            <span>Instrutores associados podem ministrar aulas para habilitados com medo de dirigir?</span>
-            <i id="faq-icon-2" class="fa-solid fa-chevron-down text-xs text-amber-500 transition-transform"></i>
-          </button>
-          <div id="faq-content-2" class="hidden px-5 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 pt-3">
-            Sim! O atendimento a pessoas já habilitadas que possuem fobia ao volante (amaxofobia) ou necessitam de aperfeiçoamento é uma atividade livre e de alto valor pedagógico. A ABRINST capacita seus associados com metodologias específicas de acolhimento e controle de ansiedade.
-          </div>
-        </div>
-
-        <div class="rounded-2xl border border-slate-200 bg-slate-50 overflow-hidden">
-          <button onclick="toggleFaq(3)" class="w-full flex justify-between items-center p-5 text-left font-bold text-slate-900 hover:text-blue-900 transition">
-            <span>Como funciona a tecnologia do sistema PREVIA para os instrutores associados?</span>
-            <i id="faq-icon-3" class="fa-solid fa-chevron-down text-xs text-amber-500 transition-transform"></i>
-          </button>
-          <div id="faq-content-3" class="hidden px-5 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 pt-3">
-            O sistema PREVIA entrega ao instrutor seu próprio aplicativo (PWA), endereço web personalizado, contrato digital assinado na tela com o dedo, conferência de LADV, gravação de trajeto por GPS ao vivo para a família acompanhar e fichas pedagógicas em PDF. Tudo sem cobrar comissão sobre o valor das aulas.
-          </div>
-        </div>
-
-        <div class="rounded-2xl border border-slate-200 bg-slate-50 overflow-hidden">
-          <button onclick="toggleFaq(4)" class="w-full flex justify-between items-center p-5 text-left font-bold text-slate-900 hover:text-blue-900 transition">
-            <span>Como faço para me cadastrar como associado FREE?</span>
-            <i id="faq-icon-4" class="fa-solid fa-chevron-down text-xs text-amber-500 transition-transform"></i>
-          </button>
-          <div id="faq-content-4" class="hidden px-5 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 pt-3">
-            Basta preencher o formulário no final desta página com seu nome, WhatsApp com DDD e estado. O sistema gerará sua entrada e você será direcionado ao grupo oficial de associados da ABRINST no WhatsApp.
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- SEÇÃO SOBRE NÓS -->
-  <section id="sobre" class="py-24 bg-white relative">
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
-      
-      <div class="max-w-3xl mb-12">
-        <div class="inline-flex items-center gap-2 rounded-full bg-blue-100 px-3 py-1 text-xs font-bold uppercase tracking-widest text-blue-950">
-          <i class="fa-solid fa-users text-amber-500"></i> Institucional
-        </div>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-950 mt-4 tracking-tight">
-          Sobre a ABRINST
-        </h2>
-      </div>
-
-      <div class="rounded-3xl bg-gradient-to-r from-[#091a36] via-[#0d234a] to-[#091a36] p-8 sm:p-12 text-white shadow-2xl relative overflow-hidden border border-slate-800">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
-          
-          <div class="lg:col-span-8 space-y-6 text-slate-200 text-base sm:text-lg leading-relaxed font-normal">
-            <p>
-              A <strong class="text-white font-bold">Associação Brasileira dos Instrutores de Trânsito - ABRINST</strong> é uma entidade criada para unir e fortalecer a categoria dos instrutores de trânsito no Brasil. Nosso objetivo é representar os interesses dos profissionais da categoria, promovendo a valorização, a autonomia e o reconhecimento da profissão.
-            </p>
-            <p>
-              Através da associação, os instrutores poderão se conectar, trocar experiências e participar de ações de educação para o trânsito em escolas, empresas e faculdades, além de capacitações e acesso a informações relevantes do setor.
-            </p>
-            <p class="text-amber-300 font-semibold pt-2">
-              Junte-se a nós para construir as mudanças necessárias, fortalecer nossa profissão, ampliar a educação para o trânsito e contribuir para um trânsito mais seguro, consciente e humano.
-            </p>
-          </div>
-
-          <div class="lg:col-span-4 flex flex-col gap-4 border-t lg:border-t-0 lg:border-l border-white/10 pt-6 lg:pt-0 lg:pl-8">
-            <div class="rounded-2xl bg-white/5 p-4 border border-white/10">
-              <div class="text-amber-400 text-sm font-bold flex items-center gap-2 mb-1">
-                <i class="fa-solid fa-graduation-cap"></i> Ações Educativas
-              </div>
-              <div class="text-xs text-slate-300">Presença em escolas, faculdades e empresas para conscientização contínua.</div>
-            </div>
-
-            <div class="rounded-2xl bg-white/5 p-4 border border-white/10">
-              <div class="text-amber-400 text-sm font-bold flex items-center gap-2 mb-1">
-                <i class="fa-solid fa-handshake"></i> Troca e Conexão
-              </div>
-              <div class="text-xs text-slate-300">Ambiente de networking ativo entre instrutores de todos os estados.</div>
-            </div>
-
-            <div class="rounded-2xl bg-white/5 p-4 border border-white/10">
-              <div class="text-amber-400 text-sm font-bold flex items-center gap-2 mb-1">
-                <i class="fa-solid fa-shield-heart"></i> Humanização no Trânsito
-              </div>
-              <div class="text-xs text-slate-300">Compromisso com a formação ética e redução de sinistros viários.</div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-  </section>
-
   <!-- SEÇÃO DE LEGISLAÇÃO & RESOLUÇÃO 1.020 -->
-  <section id="legislacao" class="py-20 bg-slate-100">
+  <section id="legislacao" class="py-20 bg-white border-b border-slate-200">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
         <div>
           <span class="text-xs font-bold uppercase tracking-widest text-blue-900">Normas & Resoluções</span>
-          <h2 class="text-3xl font-extrabold text-slate-950 mt-1">Legislação de Trânsito</h2>
+          <h2 class="text-3xl font-extrabold text-slate-950 mt-1 font-title">Legislação de Trânsito</h2>
           <p class="text-slate-600 text-sm mt-2">Acompanhe as resoluções vigentes do CONTRAN e diretrizes do SENATRAN.</p>
         </div>
       </div>
@@ -1048,7 +1541,7 @@
             <div class="inline-flex items-center gap-2 rounded-full bg-blue-100 px-3 py-1 text-xs font-black text-blue-950">
               <i class="fa-solid fa-gavel text-amber-500"></i> Destaque Regulatório Oficial
             </div>
-            <h3 class="text-2xl font-black text-slate-950">Resolução CONTRAN nº 1.020</h3>
+            <h3 class="text-2xl font-black text-slate-950 font-title">Resolução CONTRAN nº 1.020</h3>
             <p class="text-slate-700 text-sm max-w-3xl leading-relaxed">
               Dispõe sobre a regulamentação, procedimentos técnicos, credenciamentos e diretrizes aplicadas aos processos de formação e capacitação de condutores no âmbito do Sistema Nacional de Trânsito (SNT). A ABRINST atua diretamente no esclarecimento de dúvidas e na orientação jurídica dos instrutores associados para conformidade plena.
             </p>
@@ -1063,13 +1556,74 @@
     </div>
   </section>
 
+  <!-- SEÇÃO: FAQ (PERGUNTAS FREQUENTES) -->
+  <section id="faq" class="py-20 bg-slate-50 border-b border-slate-200">
+    <div class="mx-auto max-w-4xl px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="inline-flex items-center gap-2 rounded-full bg-blue-100 px-3.5 py-1 text-xs font-bold uppercase tracking-widest text-blue-950">
+          <i class="fa-solid fa-circle-question text-amber-500"></i> Dúvidas Frequentes
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-950 mt-3 tracking-tight font-title">
+          Perguntas Frequentes (FAQ)
+        </h2>
+        <p class="text-slate-600 text-sm mt-2">
+          Respostas claras sobre a atuação da ABRINST, direitos do instrutor associado e formação do condutor.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        <div class="rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-sm">
+          <button onclick="toggleFaq(1)" class="w-full flex justify-between items-center p-5 text-left font-bold text-slate-900 hover:text-blue-900 transition">
+            <span>O que é a ABRINST e qual a sua missão?</span>
+            <i id="faq-icon-1" class="fa-solid fa-chevron-down text-xs text-amber-500 transition-transform"></i>
+          </button>
+          <div id="faq-content-1" class="hidden px-5 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+            A ABRINST (Associação Brasileira dos Instrutores de Trânsito) é uma entidade de classe criada para unir, valorizar e capacitar os instrutores de trânsito em todo o Brasil. Promovemos a autonomia profissional, assessoria jurídica, padronização pedagógica e educação de trânsito nas escolas, empresas e universidades.
+          </div>
+        </div>
+
+        <div class="rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-sm">
+          <button onclick="toggleFaq(2)" class="w-full flex justify-between items-center p-5 text-left font-bold text-slate-900 hover:text-blue-900 transition">
+            <span>Instrutores associados podem ministrar aulas para habilitados com medo de dirigir?</span>
+            <i id="faq-icon-2" class="fa-solid fa-chevron-down text-xs text-amber-500 transition-transform"></i>
+          </button>
+          <div id="faq-content-2" class="hidden px-5 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+            Sim! O atendimento a pessoas já habilitadas que possuem fobia ao volante (amaxofobia) ou necessitam de aperfeiçoamento é uma atividade livre e de alto valor pedagógico. A ABRINST capacita seus associados com metodologias específicas de acolhimento e controle de ansiedade.
+          </div>
+        </div>
+
+        <div class="rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-sm">
+          <button onclick="toggleFaq(3)" class="w-full flex justify-between items-center p-5 text-left font-bold text-slate-900 hover:text-blue-900 transition">
+            <span>Como funciona a tecnologia do sistema PREVIA para os instrutores associados?</span>
+            <i id="faq-icon-3" class="fa-solid fa-chevron-down text-xs text-amber-500 transition-transform"></i>
+          </button>
+          <div id="faq-content-3" class="hidden px-5 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+            O sistema PREVIA entrega ao instrutor seu próprio aplicativo (PWA), endereço web personalizado, contrato digital assinado na tela com o dedo, conferência de LADV, gravação de trajeto por GPS ao vivo para a família acompanhar e fichas pedagógicas em PDF. Tudo sem cobrar comissão sobre o valor das aulas.
+          </div>
+        </div>
+
+        <div class="rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-sm">
+          <button onclick="toggleFaq(4)" class="w-full flex justify-between items-center p-5 text-left font-bold text-slate-900 hover:text-blue-900 transition">
+            <span>Como faço para me cadastrar como associado FREE?</span>
+            <i id="faq-icon-4" class="fa-solid fa-chevron-down text-xs text-amber-500 transition-transform"></i>
+          </button>
+          <div id="faq-content-4" class="hidden px-5 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+            Basta preencher o formulário no final desta página com seu nome, WhatsApp com DDD e estado. O sistema gerará sua entrada e você será direcionado ao grupo oficial de associados da ABRINST no WhatsApp.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
   <!-- FORMULÁRIO DE CADASTRO COM REDIRECIONAMENTO WHATSAPP -->
   <section id="cadastro" class="py-20 bg-[#091a36] text-white">
     <div class="mx-auto max-w-3xl px-6 text-center">
       <span class="text-xs font-bold uppercase tracking-widest text-amber-400">Faça Parte</span>
-      <h2 class="text-3xl font-extrabold mt-2">Cadastre-se na ABRINST</h2>
+      <h2 class="text-3xl font-extrabold mt-2 font-title">Cadastre-se na ABRINST</h2>
       <p class="text-slate-400 text-sm mt-3">
-        Participe do grupo oficial de Associados e impulsione sua carreira de instrutor independente.
+        Participe do quadro oficial de Associados e impulsione sua carreira de instrutor de trânsito.
       </p>
 
       <form id="cadForm" onsubmit="realizarCadastro(event)" class="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
@@ -1150,15 +1704,51 @@
     </div>
   </div>
 
+  <!-- MODAL DE DOAÇÃO -->
+  <div id="modalDoar" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-700 rounded-3xl max-w-md w-full p-6 sm:p-8 text-white relative shadow-2xl">
+      <button onclick="fecharModalDoar()" class="absolute top-5 right-5 text-slate-400 hover:text-white text-xl">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="text-center space-y-3 mb-6">
+        <div class="h-14 w-14 rounded-2xl bg-amber-500 text-slate-950 flex items-center justify-center text-2xl mx-auto font-black shadow-lg">
+          <i class="fa-solid fa-hand-holding-dollar"></i>
+        </div>
+        <h3 class="text-2xl font-title font-black text-white">Apoie a ABRINST</h3>
+        <p class="text-xs text-slate-300">
+          A sua contribuição ajuda a manter cursos gratuitos, assessoria jurídica e campanhas de segurança no trânsito.
+        </p>
+      </div>
+
+      <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800 text-center space-y-2 mb-6">
+        <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">Chave PIX Oficial (WhatsApp):</span>
+        <div class="text-amber-400 font-mono text-sm font-bold bg-slate-900 py-2.5 px-3 rounded-xl border border-slate-700 flex items-center justify-between">
+          <span id="chavePixTexto">(31) 99017-4080</span>
+          <button onclick="copiarPix()" class="text-xs bg-amber-500 text-slate-950 px-3 py-1 rounded-lg font-bold hover:bg-amber-400 transition">
+            Copiar
+          </button>
+        </div>
+      </div>
+
+      <button onclick="fecharModalDoar()" class="w-full py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold uppercase tracking-wider text-slate-200 transition">
+        Fechar
+      </button>
+    </div>
+  </div>
+
   <!-- RODAPÉ INSTITUCIONAL -->
-  <footer class="bg-[#091a36] py-12 text-slate-400 text-xs border-t border-slate-800">
-    <div class="mx-auto max-w-7xl px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
-      <div class="flex items-center gap-3">
-        <div class="h-8 w-8 rounded-lg bg-amber-400 text-slate-950 font-black flex items-center justify-center">A</div>
-        <span class="font-bold text-white text-sm">Associação Brasileira dos Instrutores de Trânsito - ABRINST</span>
+  <footer class="bg-[#213144] py-8 text-slate-400 text-xs border-t border-slate-800 text-center">
+    <div class="mx-auto max-w-7xl px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <img 
+          src="https://static.wixstatic.com/media/a0f66e_5180a3b9f1d94c17832f488fd0401d92%7Emv2.png/v1/fill/w_192%2Ch_192%2Clg_1%2Cusm_0.66_1.00_0.01/a0f66e_5180a3b9f1d94c17832f488fd0401d92%7Emv2.png" 
+          alt="ABRINST" 
+          class="h-6 w-6 object-contain"
+        >
+        <span class="font-bold text-white text-xs">© 2026 Associação Brasileira dos Instrutores de Trânsito - ABRINST</span>
       </div>
       <div>Belo Horizonte - MG | Por um trânsito mais seguro, consciente e humano</div>
-      <div>© 2026 Todos os direitos reservados.</div>
     </div>
   </footer>
 
@@ -1186,7 +1776,7 @@
     function buscarPorCep() {
       const cep = document.getElementById('cepBusca').value.trim();
       if (!cep) return alert('Digite um CEP ou Cidade válida.');
-      selecionarEstado('São Paulo (SP)', 'SP', 4820, '4.9', 'Região de atendimento consultada: ' + cep);
+      selecionarEstado('São Paulo (SP)', 'SP', 4820, '4.9', 'Região consultada: ' + cep);
     }
 
     function toggleChatbot() {
@@ -1214,15 +1804,15 @@
       container.scrollTop = container.scrollHeight;
 
       setTimeout(() => {
-        let resposta = "Entendido! Você pode tirar essa e outras dúvidas diretamente com nossa equipe no grupo de WhatsApp oficial.";
+        let resposta = "Compreendido! Pode esclarecer esta e outras dúvidas diretamente com a nossa equipa no grupo oficial de WhatsApp.";
         const m = msg.toLowerCase();
 
         if (m.includes('associar') || m.includes('cadastro')) {
-          resposta = "Para se associar gratuitamente, preencha o formulário no final da página com seu WhatsApp e você entrará diretamente no grupo de associados FREE!";
+          resposta = "Para se associar gratuitamente, preencha o formulário no final da página com o seu WhatsApp e terá acesso direto ao grupo de associados FREE!";
         } else if (m.includes('1020') || m.includes('resolução')) {
-          resposta = "A Resolução CONTRAN nº 1.020 estabelece procedimentos técnicos e diretrizes para formação de condutores no SNT. Nossa seção 'Legislação' detalha os pontos principais.";
+          resposta = "A Resolução CONTRAN nº 1.020 estabelece procedimentos técnicos e diretrizes para a formação de condutores no SNT. A nossa secção 'Legislação' detalha os pontos principais.";
         } else if (m.includes('cnh') || m.includes('processo') || m.includes('etapas')) {
-          resposta = "O processo de CNH é composto por 4 etapas: Exames médico e psicotécnico, 45 horas teóricas, aulas práticas com LADV e exame prático de direção.";
+          resposta = "O processo de CNH é composto por 4 etapas: Exames médico e psicotécnico, 45 horas teóricas, aulas práticas com LADV e exame prático de condução.";
         }
 
         const botDiv = document.createElement('div');
@@ -1267,6 +1857,20 @@
 
     function fecharPerfilModal() {
       document.getElementById('perfilModal').classList.add('hidden');
+    }
+
+    function abrirModalDoar() {
+      document.getElementById('modalDoar').classList.remove('hidden');
+    }
+
+    function fecharModalDoar() {
+      document.getElementById('modalDoar').classList.add('hidden');
+    }
+
+    function copiarPix() {
+      navigator.clipboard.writeText("31990174080").then(() => {
+        alert("Chave PIX copiada para a área de transferência!");
+      });
     }
 
     function realizarCadastro(e) {
